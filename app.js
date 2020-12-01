@@ -8,7 +8,7 @@ const app = express();
 const db = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '1234',
+    password : '',
     port     : '3306'
     //socketPath: '/var/run/mysqld/mysqld.sock'
 });
