@@ -9,6 +9,7 @@ const db = mysql.createConnection({
     host     : '0.0.0.0',
     user     : 'root',
     password : '1234',
+    port     : '3306',
     socketPath: '/var/run/mysqld/mysqld.sock'
 });
 
