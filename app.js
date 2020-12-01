@@ -6,11 +6,11 @@ const app = express();
 
 // create mysql connection
 const db = mysql.createConnection({
-    host     : '127.0.0.1',
+    host     : 'localhost',
     user     : 'root',
     password : '1234',
-    port     : '3306',
-    socketPath: '/var/run/mysqld/mysqld.sock'
+    port     : '3306'
+    //socketPath: '/var/run/mysqld/mysqld.sock'
 });
 
 // create db
