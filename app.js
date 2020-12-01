@@ -4,14 +4,16 @@ const mysql = require('mysql');
 // initialize express app
 const app = express();
 
-// create mysql connection
-const db = mysql.createConnection({
+const dbOptions = {
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : '1234',
     port     : '3306'
     //socketPath: '/var/run/mysqld/mysqld.sock'
-});
+};
+
+// create mysql connection
+const db = mysql.createConnection(dbOptions);
 
 // create db
 app.get('/createdb', (req, res) =>{
@@ -28,15 +30,17 @@ app.get('/createdb', (req, res) =>{
 // default get
 app.get('/', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    // connection
+    db.connect((err) =>{
+        if (err){
+            console.log("MySQL not connected. Error: " + err.code);
+            console.log("DBOptions var: " + dbOptions);
+            throw err; 
+        }
+        console.log('MySQL connected!');
+    });
+
     res.send('GET Successful!');
-});
-
-
-// connection
-db.connect((err) =>{
-    if (err)
-      throw err;
-    console.log('MySQL connected!');
 });
 
 app.listen('3000', () =>{
