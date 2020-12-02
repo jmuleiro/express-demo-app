@@ -4,6 +4,9 @@ const mysql = require('mysql');
 // initialize express app
 const app = express();
 
+app.set('port', process.env.PORT || 3000);
+
+
 const dbOptions = {
     host     : 'http://172.17.0.2',
     user     : 'root',
@@ -43,6 +46,6 @@ app.get('/', (req, res) => {
     res.send('GET Successful!');
 });
 
-app.listen('3000', () =>{
-    console.log("Server started on port 3000");
-});
+let server = app.listen(app.get('port'), () =>{
+    console.log("Express server listening on port " + server.address().port);
+})
