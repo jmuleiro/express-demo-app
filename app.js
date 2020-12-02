@@ -6,9 +6,12 @@ const app = express();
 
 app.set('port', process.env.PORT || 3000);
 
+let server = app.listen(app.get('port'), () =>{
+    console.log("Express server listening on port " + server.address().port);
+});
 
 const dbOptions = {
-    host     : 'http://172.17.0.2',
+    host     : 'http://localhost',
     user     : 'root',
     password : '1234',
     port     : '3306'
@@ -45,7 +48,3 @@ app.get('/', (req, res) => {
 
     res.send('GET Successful!');
 });
-
-let server = app.listen(app.get('port'), () =>{
-    console.log("Express server listening on port " + server.address().port);
-})
