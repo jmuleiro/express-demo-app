@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const app = express();
 
 const dbOptions = {
-    host     : 'localhost',
+    host     : 'http://172.17.0.2',
     user     : 'root',
     password : '1234',
     port     : '3306'
