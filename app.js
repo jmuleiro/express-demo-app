@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     db.connect((err) =>{
         if (err){
             console.log("MySQL not connected. Error: " + err.code);
-            console.log("DBOptions var: " + dbOptions);
+            console.log("host:"+ dbOptions.host + "user:" + dbOptions.user + "password:" + dbOptions.password + "port:" + dbOptions.port);
             throw err; 
         }
         console.log('MySQL connected!');
