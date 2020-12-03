@@ -11,7 +11,7 @@ let server = app.listen(app.get('port'), () =>{
 });
 
 const dbOptions = {
-    host     : 'http://localhost',
+    host     : 'localhost',
     user     : 'root',
     password : '1234',
     port     : '3306'
